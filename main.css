@@ -4,21 +4,45 @@
 }
 
 body{
-  background: #efefef;
-  margin:0;
-  padding: 0;
-  color:black;
+	background: #efefef;
+	margin:0;
+	padding: 0;
+	color:black;
 }
 
-.icon {
+ul, ol{
+	list-style-type: none;
+}
+
+a{
+	text-decoration: none;
+	color:black;
+}
+
+h1{
+	margin-top: 18px;
+}
+
+hr{
+	margin: 20px 0;
+	border: none;
+	border-top: #DEDEDE 1px solid;
+}
+
+.clearfix::after{
+	content: '';
+	display: block;
+	clear: both;
+}
+
+svg.icon {
    width: 1em; height: 1em;
    vertical-align: -0.15em;
    fill: currentColor;
    overflow: hidden;
 }
 
-
-#welcome{
+div#welcome {
 	height:100%;
 	width:100%;
 	display: none;
@@ -29,11 +53,12 @@ body{
 	z-index: 2;
 }
 
-#welcome.active{
+div#welcome.active {
 	display: flex;
 }
 
-#loading::before,#loading::after{
+div#welcome > div#loading::before,
+div#welcome > div#loading::after {
 	content:'';
 	position:absolute;
 	width:10px;
@@ -48,11 +73,11 @@ body{
 	animation:loading 1.5s linear infinite;
 }
 
-#loading::after{
+div#welcome > div#loading::after {
 	animation-delay:0.7s;
 }
 
-@keyframes loading{
+@keyframes loading {
   0%{
     width:0;
     height:0;
@@ -65,22 +90,7 @@ body{
   }
 }
 
-ul, ol{
-	list-style-type: none;
-}
-
-a{
-  text-decoration: none;
-  color:black;
-}
-
-.clearfix::after{
-  content: '';
-  display: block;
-  clear: both;
-}
-
-.topNavBar{
+div.topNavBar {
 	padding: 20px 16px;
 	position: fixed;
 	width: 100%;
@@ -90,36 +100,36 @@ a{
 	color: #b7b7b7;
 }
 
-.topNavBar.sticky{
+div.topNavBar.sticky {
 	background: white;
 	padding: 10px 16px;
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 	color: #3d4451;
 }
 
-.topNavBar .logo{
+div.topNavBar > a.logo {
 	font-size: 24px;
     font-family: 'Arial Black';
     float:left;
 }
 
-.topNavBar .rs {
+div.topNavBar > a.logo > span.rs {
 	color: #e6686a;
 }
 
-.topNavBar .card {
+div.topNavBar > a.logo > span.card {
 	color: #9a9da2;
 }
 
-.topNavBar > nav {
+div.topNavBar > nav {
 	float:right;
 }
 
-.topNavBar > nav > ul {
+div.topNavBar > nav > ul {
 	display: block;
 }
 
-.topNavBar > nav > ul >li {
+div.topNavBar > nav > ul > li {
 	float:left;
 	margin-left: 17px;
 	margin-right: 17px;
@@ -130,7 +140,7 @@ a{
 	border-bottom: 3px solid transparent;
 }
 
-.topNavBar > nav > ul >li >a {
+div.topNavBar > nav > ul > li > a {
 	font-size: 12px;
 	font-weight: bold;
 	color:inherit;
@@ -138,8 +148,8 @@ a{
 	position: relative;
 }
 
-.topNavBar > nav > ul > li.active > a::after,
-.topNavBar > nav > ul > li.highLight > a::after{
+div.topNavBar > nav > ul > li.active > a::after,
+div.topNavBar > nav > ul > li.highLight > a::after{
 	content: ''; 
 	display: block;
 	position: absolute;
@@ -159,7 +169,7 @@ a{
 	}
 }
 
-.topNavBar .submenu{
+div.topNavBar .submenu{
 	display: none;
 	position: absolute;
 	top:110%; 
@@ -181,11 +191,11 @@ a{
 	}
 }
 
-.topNavBar li.active .submenu{
+div.topNavBar li.active .submenu{
 	display: block;
 }
 
-.topNavBar .submenu li {
+div.topNavBar .submenu li {
 	padding: 5px 10px;
 }
 
@@ -257,15 +267,6 @@ a{
 	height: 347px;
 }
 
-h1{
-	margin-top: 18px;
-}
-
-hr{
-	margin: 20px 0;
-	border: none;
-	border-top: #DEDEDE 1px solid;
-}
 
 .text dl{
 	width:100%;
@@ -326,22 +327,22 @@ hr{
     transition: box-shadow 0.5s;
 }
 
-.button:hover{
+a.button:hover{
 	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.6);
 }
 
-.buttonWrapper{
+p.buttonWrapper{
 	text-align: center;
 }
 
-.aboutMe{
+div.aboutMe{
 	text-align: center;
 	font-family: KaiTi;
 	line-height: 1.8;
 	font-size: 18px;
 }
 
-.skills, .works{
+section.skills, section.works{
 	max-width: 940px;
 	margin-left: auto;
 	margin-right: auto;
@@ -349,42 +350,42 @@ hr{
 	text-align: center;
 }
 
-.works{
+section.works{
 	margin-bottom: 100px;
 }
 
-.skills h2,
-.works h2{
+section.skills h2,
+section.works h2{
     color: #3d4451;
     font-size: 34px;
     line-height: 1.2;
     font-weight: 600;
 }
 
-.skills ol{
+section.skills ol{
 	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
 	background: white;
 	margin-top: 30px;
 	padding: 42px 50px 10px;
 }
 
-.skills li{
+section.skills li{
 	float: left;
 	width: 48%;
 }
 
-.skills li:nth-child(even){
+section.skills li:nth-child(even){
 	float: right;
 }
 
-.skills h3 {
+section.skills h3 {
     font-size: 14px;
     line-height: 1.1;
     padding-right: 40px;
     font-weight: normal;
 }
 
-.skills .progressBar{
+section.skills .progressBar{
 	background-color: #FAE1E1;
 	height: 3px;
 	border-radius: 3px;
@@ -392,7 +393,7 @@ hr{
 	overflow: hidden;
 }
 
-.skills .progressBar .progress{
+section.skills .progressBar .progress{
 	height: 100%;
 	background-color: #E6686A;
 	border-radius: 3px;
@@ -400,16 +401,35 @@ hr{
 	transition: all 1s;
 }
 
-.skills.offset .progressBar .progress{
+section.skills.offset .progressBar .progress{
 	transform: translateX(-100%);
 }
 
-.works{
+section.works{
 	position: relative;
 }
 
-.swiper-container {
+div.swiper-container {
     width: 800px;
 	height: 450px;
 	margin-top: 30px;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next{
+	background-color: white;
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	outline: none;
+}
+
+div.swiper-button-prev{
+	right: 100%;
+	left: auto;	
+}
+
+div.swiper-button-next{
+	left: 100%;
+	right: auto;	
 }
