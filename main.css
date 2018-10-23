@@ -19,16 +19,6 @@ a{
 	color:black;
 }
 
-h1{
-	margin-top: 18px;
-}
-
-hr{
-	margin: 20px 0;
-	border: none;
-	border-top: #DEDEDE 1px solid;
-}
-
 .clearfix::after{
 	content: '';
 	display: block;
@@ -42,7 +32,7 @@ svg.icon {
    overflow: hidden;
 }
 
-div#welcome {
+div#loadingContainer {
 	height:100%;
 	width:100%;
 	display: none;
@@ -53,12 +43,12 @@ div#welcome {
 	z-index: 2;
 }
 
-div#welcome.active {
+div#loadingContainer.active {
 	display: flex;
 }
 
-div#welcome > div#loading::before,
-div#welcome > div#loading::after {
+div#loadingContainer > div#loading::before,
+div#loadingContainer > div#loading::after {
 	content:'';
 	position:absolute;
 	width:10px;
@@ -73,7 +63,7 @@ div#welcome > div#loading::after {
 	animation:loading 1.5s linear infinite;
 }
 
-div#welcome > div#loading::after {
+div#loadingContainer > div#loading::after {
 	animation-delay:0.7s;
 }
 
@@ -143,7 +133,7 @@ div.topNavBar > nav > ul > li {
 div.topNavBar > nav > ul > li > a {
 	font-size: 12px;
 	font-weight: bold;
-	color:inherit;
+	color: inherit;
 	display: block;
 	position: relative;
 }
@@ -169,7 +159,7 @@ div.topNavBar > nav > ul > li.highLight > a::after{
 	}
 }
 
-div.topNavBar .submenu{
+div.topNavBar > nav > ul > li > ul.submenu{
 	display: none;
 	position: absolute;
 	top:110%; 
@@ -191,11 +181,11 @@ div.topNavBar .submenu{
 	}
 }
 
-div.topNavBar li.active .submenu{
+div.topNavBar > nav > ul > li.active > ul.submenu{
 	display: block;
 }
 
-div.topNavBar .submenu li {
+div.topNavBar > nav > ul > li > ul.submenu > li {
 	padding: 5px 10px;
 }
 
@@ -208,21 +198,21 @@ div.topNavBar .submenu li {
 	transition: all 0.3s;
 }
 
-.banner{
+div.banner{
 	background-image: url(https://wx1.sinaimg.cn/large/0060lm7Tly1fwghurmtt8j31kw0nlad3.jpg);
 	height: 515px;
 	background-size: cover;
 	background-position: center center;
 }
 
-.banner::after{
+div.banner::after{
 	content: "";
 	display: block;
 	height: 515px;
 	background-color: rgba(0, 0, 0, 0.8);
 }
 
-.userCard{
+main > div.about{
 	max-width: 940px;
 	margin-left: auto;
 	margin-right: auto;
@@ -230,12 +220,24 @@ div.topNavBar .submenu li {
 	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
 }
 
-.pictureAndText{
+main > div.about > div.pictureAndText{
 	padding: 50px;
 	background-color: white;
 }
 
-.hello{
+main > div.about > div.pictureAndText > div.picture{
+	float: left;
+}
+
+main > div.about > div.pictureAndText > div.text{
+	float: left;
+	display: block;
+	margin-left: 65px; 
+	width: 470px;
+	height: 347px;
+}
+
+main > div.about > div.pictureAndText > div.text > span.hello{
 	background: #e6686a;
   	color: white;
   	padding: 4px 16px;
@@ -244,7 +246,7 @@ div.topNavBar .submenu li {
   	margin-bottom: 10px;
 }
 
-.triangle{
+main > div.about > div.pictureAndText > div.text > span.hello > div.triangle{
 	border:10px solid transparent;
 	display: block;
 	border-top-width:0px; 
@@ -255,55 +257,50 @@ div.topNavBar .submenu li {
 	top: 100%;
 }
 
-.picture{
-	float: left;
+main > div.about > div.pictureAndText > div.text > h1{
+	margin-top: 18px;
 }
 
-.text{
-	float: left;
-	display: block;
-	margin-left: 65px; 
-	width: 470px;
-	height: 347px;
+main > div.about > div.pictureAndText > div.text > hr{
+	margin: 20px 0;
+	border: none;
+	border-top: #DEDEDE 1px solid;
 }
 
-
-.text dl{
+main > div.about > div.pictureAndText > div.text > dl{
 	width:100%;
 }
 
-.text dd,
-.text dt {
+main > div.about > div.pictureAndText > div.text > dl > dd,
+main > div.about > div.pictureAndText > div.text > dl > dt {
 	float: left;
 	padding: 5px 0;
 	margin-left: 0px;
 }
 
-.text dt{
+main > div.about > div.pictureAndText > div.text > dl > dt {
 	width:30%;
 	font-weight: bold;
 }
 
-.text  dd{
+main > div.about > div.pictureAndText > div.text > dl > dd {
 	width: 70%;
 	color: #9da0a7;
 }
 
-.media {
+main > div.about > footer.media {
 	background:rgb(230, 104, 106); 
 	text-align: center;
 }
 
-.media 	svg {
+main > div.about > footer.media > a > svg.icon {
 	width: 30px;
     height: 30px;
     fill: white;
     vertical-align: middle;
-
-
 }
 
-.media a{
+main > div.about > footer.media > a {
 	display: inline-block;
 	border-radius: 100%;
 	width: 40px;
@@ -311,11 +308,11 @@ div.topNavBar .submenu li {
 	margin: 16px;
 }
 
-.media a:hover {
+main > div.about > footer.media > a:hover {
     background-color: #CF5D5F;
 }
 
-.button{
+main > p.buttonWrapper > a.button{
 	padding: 21px 55px;
 	border: 1px #cdcfd1 solid;
 	margin: 32px 0;
@@ -327,22 +324,23 @@ div.topNavBar .submenu li {
     transition: box-shadow 0.5s;
 }
 
-a.button:hover{
+main > p.buttonWrapper > a.button:hover{
 	box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.6);
 }
 
-p.buttonWrapper{
+main > p.buttonWrapper{
 	text-align: center;
 }
 
-div.aboutMe{
+main > div.aboutMe{
 	text-align: center;
 	font-family: KaiTi;
 	line-height: 1.8;
 	font-size: 18px;
 }
 
-section.skills, section.works{
+section.skills,
+section.works{
 	max-width: 940px;
 	margin-left: auto;
 	margin-right: auto;
@@ -354,38 +352,38 @@ section.works{
 	margin-bottom: 100px;
 }
 
-section.skills h2,
-section.works h2{
+section.skills > h2,
+section.works > h2{
     color: #3d4451;
     font-size: 34px;
     line-height: 1.2;
     font-weight: 600;
 }
 
-section.skills ol{
+section.skills > ol{
 	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
 	background: white;
 	margin-top: 30px;
 	padding: 42px 50px 10px;
 }
 
-section.skills li{
+section.skills > ol > li{
 	float: left;
 	width: 48%;
 }
 
-section.skills li:nth-child(even){
+section.skills > ol > li:nth-child(even){
 	float: right;
 }
 
-section.skills h3 {
+section.skills > ol > li > h3 {
     font-size: 14px;
     line-height: 1.1;
     padding-right: 40px;
     font-weight: normal;
 }
 
-section.skills .progressBar{
+section.skills > ol > li > div.progressBar{
 	background-color: #FAE1E1;
 	height: 3px;
 	border-radius: 3px;
@@ -393,7 +391,7 @@ section.skills .progressBar{
 	overflow: hidden;
 }
 
-section.skills .progressBar .progress{
+section.skills > ol > li > div.progressBar > div.progress{
 	height: 100%;
 	background-color: #E6686A;
 	border-radius: 3px;
@@ -401,7 +399,7 @@ section.skills .progressBar .progress{
 	transition: all 1s;
 }
 
-section.skills.offset .progressBar .progress{
+section.skills.offset > ol > li > div.progressBar > div.progress{
 	transform: translateX(-100%);
 }
 
@@ -409,14 +407,14 @@ section.works{
 	position: relative;
 }
 
-div.swiper-container {
+section.works > div.swiper-container {
     width: 800px;
 	height: 450px;
 	margin-top: 30px;
 }
 
-div.swiper-button-prev,
-div.swiper-button-next{
+section.works > div.swiper-button-prev,
+section.works > div.swiper-button-next{
 	background-color: white;
 	width: 60px;
 	height: 60px;
@@ -424,12 +422,12 @@ div.swiper-button-next{
 	outline: none;
 }
 
-div.swiper-button-prev{
+section.works > div.swiper-button-prev{
 	right: 100%;
 	left: auto;	
 }
 
-div.swiper-button-next{
+section.works > div.swiper-button-next{
 	left: 100%;
 	right: auto;	
 }
